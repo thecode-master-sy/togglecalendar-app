@@ -1,7 +1,14 @@
 import { cssInterop } from "nativewind";
 import * as LucideIcons from "lucide-react-native";
 
-const iconNames = ["ArrowLeft", "Mail", "Copy", "Check"] as const;
+const iconNames = [
+  "ArrowLeft",
+  "Mail",
+  "Copy",
+  "Check",
+  "AlertTriangle",
+  "X",
+] as const;
 
 iconNames.forEach((name) => {
   cssInterop(LucideIcons[name], {
@@ -12,4 +19,4 @@ iconNames.forEach((name) => {
   });
 });
 
-export const { ArrowLeft, Mail, Copy, Check } = LucideIcons;
+export const { ArrowLeft, Mail, Copy, Check, AlertTriangle, X } = LucideIcons;

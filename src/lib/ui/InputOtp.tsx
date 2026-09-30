@@ -12,7 +12,10 @@ import Animated, {
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-function InputOTP({ className, ...props }: OTPInputProps) {
+function InputOTP({
+  className,
+  ...props
+}: React.ComponentPropsWithRef<typeof OTPInput>) {
   return <OTPInput style={StyleSheet.absoluteFill} {...props} />;
 }
 
@@ -33,13 +36,15 @@ function InputOTPSlot({
   isActive,
   hasFakeCaret,
   className,
-}: { className?: string } & SlotProps) {
+  isInvalid,
+}: { className?: string; isInvalid: boolean } & SlotProps) {
   return (
     <View
       className={cn(
         "w-[50px] h-[50px] rounded-lg items-center justify-center border border-border bg-input dark:bg-input/5",
         {
           "border-primary border-2": isActive,
+          "border-destructive": isInvalid,
         },
         className,
       )}

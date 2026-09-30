@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Pressable, View } from "react-native";
-import { ArrowLeft } from "lucide-react-native";
-import Animated, { FadeInUp } from "react-native-reanimated";
 import { authClient } from "@/lib/auth-client";
 import { ThemedText } from "@/lib/ui/ThemedText";
 import { Spinner } from "@/lib/ui/Spinner";
@@ -57,7 +55,7 @@ export const OtpFooter = ({
 
   return (
     <View className="gap-8">
-      <Animated.View entering={FadeInUp.duration(600).delay(160)}>
+      <View>
         <View className="flex-row items-center justify-center flex-wrap gap-1">
           <ThemedText className="text-sm text-muted-foreground">
             No email? Check spam or
@@ -79,18 +77,17 @@ export const OtpFooter = ({
             </ThemedText>
           </Pressable>
         </View>
-      </Animated.View>
+      </View>
 
-      <Animated.View entering={FadeInUp.duration(600).delay(160)}>
+      <View>
         <Pressable
           onPress={() => router.push("/(auth)/auth")}
           className="flex-row items-center justify-center gap-2 self-center py-2 px-3"
           hitSlop={8}
         >
-          <ArrowLeft size={16} color="#8a8a8a" />
           <ThemedText className="text-muted-foreground">Go Back</ThemedText>
         </Pressable>
-      </Animated.View>
+      </View>
     </View>
   );
 };
